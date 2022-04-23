@@ -12,7 +12,7 @@ export class AppComponent {
   registrado=false;
   nombre:string="";
   apellido:string="";
-  entradas: any[];
+  entradas: any[]; //en el video tutorial entradas: object[], no funcionaba porque es un array local, no de objetos
 
   constructor(){
     
