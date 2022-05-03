@@ -3,6 +3,7 @@
 <form>
 <input type="text" name="nombre" [(ngModel)]="nombre"><br/>
 <input  type="text" name="apellido" [(ngModel)]="apellido"><br/>
+<input  type="text" name="cargo" [(ngModel)]="cargo"><br/>
 <input type="submit" value="Registrar" (click)="registerUser()">
 
 
@@ -14,7 +15,9 @@
 
 <br/>
 
-<p *ngIf="registrado; else sinRegistrar" >{{mensaje}} con el nombre de {{nombre}} {{apellido}}</p>
+<p *ngIf="registrado; else sinRegistrar" >{{mensaje}} con el nombre de {{nombre}} {{apellido}}
+  <!--- y tiene el cargo de <span [ngStyle]="{color: cargo=='director'?'red' :'black'}">{{cargo}}</span></p>  para solo 1 atributo -->
+  y tiene el cargo de <span [ngClass]="{paraDirectores:cargo=='director'}">{{cargo}}</span></p> 
 
 <ng-template #sinRegistrar>
 
@@ -25,7 +28,8 @@
 <br><br>
 
 <ul>
-     <li *ngFor="let entrada of entradas; let i=index"> <span style="font-size: larger; font-weight: bold;">{{entrada.titulo}}.</span> Entrada/posicion - {{i+1}}:
+     <li *ngFor="let entrada of entradas; let i=index">
+     <span style="font-size: larger; font-weight: bold;">{{entrada.titulo}}.</span> Entrada/posicion - {{i+1}}:
     </li>
   
      
